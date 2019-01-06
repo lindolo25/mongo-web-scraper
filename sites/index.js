@@ -2,13 +2,6 @@ var async = require("async");
 var sourceList = [];
 sourceList.push(require("../sites/miamiherald"));
 
-
-var sourceContainsTopic = function(topic, sourceTopics)
-{
-    if(typeof sourceTopics[topic] === "undefined") return null;
-    else return sourceTopics[topic];    
-}
-
 var sources = {
     get count()
     {
@@ -44,7 +37,4 @@ var sources = {
     }
 }
 
-sources.getArticles().then( function(articles) 
-{ 
-    console.log(articles) 
-});
+module.exports = sources;

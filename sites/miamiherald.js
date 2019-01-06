@@ -26,14 +26,13 @@ module.exports = {
         var $ = cheerio.load(response.data);
         var articles =  $("#story-list article");        
 
-        articles.each(article => {
+        articles.each((i, article) => {
             var temp = new Article();
-            article = $(article);
-            temp.headline = article.find("h4.title>a").val();
-            temp.link = article.find("h4.title>a").attr("href");
-            temp.summary = article.find("p.summary").val();
-            temp.section = article.find("h2.kicker").val();
-            temp.imgLink = article.find("div.picture>a>img").attr("src");
+            temp.headline = $(article).find("h4.title>a").text().trim();
+            temp.link = $(article).find("h4.title>a").attr("href");
+            temp.summary = $(article).find("p.summary").text().trim();
+            temp.section = $(article).find("h2.kicker").text().trim();
+            temp.imgLink = $(article).find("div.picture>a>img").attr("src");
             result.push(temp);
         });
 
