@@ -2,10 +2,10 @@ var axios = require("axios");
 var cheerio = require("cheerio");
 var Article = require("../models/article");
 var topics = {
-    News: "https://www.miamiherald.com/news/",
-    Sports: "https://www.miamiherald.com/sports/",
-    Politics: "https://www.miamiherald.com/entertainment/",
-    Entertainment: "https://www.miamiherald.com/entertainment/"
+    news: "https://www.miamiherald.com/news/",
+    sports: "https://www.miamiherald.com/sports/",
+    politics: "https://www.miamiherald.com/entertainment/",
+    entertainment: "https://www.miamiherald.com/entertainment/"
 };
 
 module.exports = {
@@ -13,7 +13,7 @@ module.exports = {
 
     getTopicLink: function(topic) 
     {
-        return topics[topic];  
+        return topics[topic];
     },
 
     getArticles: async function(topic)

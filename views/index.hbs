@@ -1,2 +1,15 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
+<div class="row">
+    {{#each articles}}
+    <div class="col-sm-6">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">{{headline}}</h5>
+                <p class="card-text">{{summary}}</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>

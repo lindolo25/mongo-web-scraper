@@ -9,13 +9,13 @@ var sources = {
     },
 
     topics: {
-        News: "News",
-        Sports: "Sports",
-        Politics: "Politics",
-        Entertainment: "Entertainment"
+        news: "news",
+        sports: "sports",
+        politics: "politics",
+        entertainment: "entertainment"
     },
 
-    getArticles : function(topic = this.topics.News)
+    getArticles : function(topic = this.topics.news)
     {
         return new Promise(function(resolve, reject) 
         {
@@ -31,7 +31,7 @@ var sources = {
                 else return [];
             }, function(err, allArticles)
             { 
-                resolve(allArticles); 
+                resolve(allArticles);
             });
         });
     }
