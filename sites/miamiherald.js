@@ -4,7 +4,7 @@ var Article = require("../models/article");
 var topics = {
     news: "https://www.miamiherald.com/news/",
     sports: "https://www.miamiherald.com/sports/",
-    politics: "https://www.miamiherald.com/entertainment/",
+    politics: "https://www.miamiherald.com/politics/",
     entertainment: "https://www.miamiherald.com/entertainment/"
 };
 
@@ -32,7 +32,9 @@ module.exports = {
             temp.link = $(article).find("h4.title>a").attr("href");
             temp.summary = $(article).find("p.summary").text().trim();
             temp.section = $(article).find("h2.kicker").text().trim();
-            temp.imgLink = $(article).find("div.picture>a>img").attr("src");
+            temp.imgLink = $(article).find("div.picture>a>img").attr("data-proxy-image");
+            temp.imgLink = temp.imgLink !== undefined ? temp.imgLink.replace("LANDSCAPE_80", "LANDSCAPE_320") : null;
+            temp.source = this.sourceName;
             result.push(temp);
         });
 

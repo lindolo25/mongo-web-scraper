@@ -1,13 +1,18 @@
 <h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
 <div class="row">
     {{#each articles}}
-    <div class="col-sm-6">
+    <div class="col-12 col-md-6 col-lg-4">
         <div class="card mb-4">
+            {{!-- only output the image if the link is not null --}}
+            {{#if imgLink}}
+                <img src="{{imgLink}}" class="card-img-top" alt="{{headline}}">
+            {{/if}}
             <div class="card-body">
                 <h5 class="card-title">{{headline}}</h5>
+                <span class="badge badge-info">{{source}}</span>
                 <p class="card-text">{{summary}}</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a href="#" class="btn btn-primary mr-3">Save</a>
+                <a href="{{link}}" target="_blank" class="">Go to the Article</a>
             </div>
         </div>
     </div>
