@@ -8,8 +8,11 @@
                 <img src="{{imgLink}}" class="card-img-top" alt="{{headline}}">
             {{/if}}
             <div class="card-body">
-                <h5 class="card-title">{{headline}}</h5>
+                <h5 class="card-title font-weight-bold">{{headline}}</h5>
                 <span class="badge badge-info">{{source}}</span>
+                {{#if section}}
+                    <span class="badge badge-danger">{{section}}</span>
+                {{/if}}
                 <p class="card-text">{{summary}}</p>
                 <a href="#" class="btn btn-primary mr-3">Save</a>
                 <a href="{{link}}" target="_blank" class="">Go to the Article</a>

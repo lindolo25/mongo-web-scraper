@@ -27,7 +27,7 @@ module.exports = {
         var articles =  $("#story-list article");        
 
         articles.each((i, article) => {
-            var temp = new Article();
+            var temp = new Article({});
             temp.headline = $(article).find("h4.title>a").text().trim();
             temp.link = $(article).find("h4.title>a").attr("href");
             temp.summary = $(article).find("p.summary").text().trim();
