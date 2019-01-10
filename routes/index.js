@@ -15,7 +15,7 @@ router.get("/users/saved", (req, res, next) =>
         db.Article.find({}, (error, docs) => 
         {
             if(error) return next(createError(500));
-            res.render('index', { title: "Saved Articles", articles: docs });
+            res.render('saved', { title: "Saved Articles", articles: docs });
             mongoose.disconnect();
         });
     });
