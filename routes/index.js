@@ -4,22 +4,21 @@ var sources = require("../sites");
 var createError = require('http-errors');
 var mongoose = require("mongoose");
 var db = require("../models");
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/webScraper";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/webScraper";
 
 router.get("/users/saved", (req, res, next) => 
 { 
-    // mongoose.connect(MONGODB_URI).then(error => 
-    //     {
-    //         if(error) return next(createError(500));
+    mongoose.connect(MONGODB_URI, {useNewUrlParser: true}, error => 
+    {
+        if(error) return next(createError(500, error));
 
-    //         db.Article.find({}, (error, docs) => 
-    //             {
-    //                 if(error) return next(createError(500));
-    //                 res.render('index', { title: "Saved Articles", articles: docs });
-    //                 mongoose.disconnect();
-    //             });
-    //     });
-    res.send("Saved content here ...");
+        db.Article.find({}, (error, docs) => 
+        {
+            if(error) return next(createError(500));
+            res.render('index', { title: "Saved Articles", articles: docs });
+            mongoose.disconnect();
+        });
+    });
 });
 
 router.get('/:topic?', function(req, res, next) 

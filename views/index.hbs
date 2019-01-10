@@ -1,23 +1,32 @@
 <h1>{{title}}</h1>
-<div class="row">
+<div id="articles-list" class="row">
     {{#each articles}}
     <div class="col-12 col-md-6 col-lg-4">
-        <div class="card mb-4">
-            {{!-- only output the image if the link is not null --}}
-            {{#if imgLink}}
-                <img src="{{imgLink}}" class="card-img-top" alt="{{headline}}">
-            {{/if}}
-            <div class="card-body">
-                <h5 class="card-title font-weight-bold">{{headline}}</h5>
-                <span class="badge badge-info">{{source}}</span>
-                {{#if section}}
-                    <span class="badge badge-danger">{{section}}</span>
+        <article id="{{_id}}" 
+            data-headline="{{headline}}"
+            data-link="{{link}}"
+            data-summary="{{summary}}"
+            data-section="{{section}}"
+            data-imgLink="{{imgLink}}"
+            data-source="{{source}}">
+
+            <div class="card mb-4">
+                {{!-- only output the image if the link is not null --}}
+                {{#if imgLink}}
+                    <img src="{{imgLink}}" class="card-img-top" alt="{{headline}}">
                 {{/if}}
-                <p class="card-text">{{summary}}</p>
-                <a href="#" class="btn btn-primary mr-3">Save</a>
-                <a href="{{link}}" target="_blank" class="">Go to the Article</a>
+                <div class="card-body">
+                    <h5 class="card-title font-weight-bold">{{headline}}</h5>
+                    <span class="badge badge-info">{{source}}</span>
+                    {{#if section}}
+                        <span class="badge badge-danger">{{section}}</span>
+                    {{/if}}
+                    <p class="card-text">{{summary}}</p>
+                    <a href="#" class="btn btn-primary mr-3">Save</a>
+                    <a href="{{link}}" target="_blank" class="">Go to the Article</a>
+                </div>
             </div>
-        </div>
+        </article>        
     </div>
     {{/each}}
 </div>
