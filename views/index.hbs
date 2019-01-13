@@ -1,4 +1,8 @@
 <h1>{{title}}</h1>
+{{#if articles.length}}
+{{else}}
+    <p>No articles found.</p>
+{{/if}}
 <div id="articles-list" class="row">
     {{#each articles}}
     <div class="col-12 col-md-6 col-lg-4">
