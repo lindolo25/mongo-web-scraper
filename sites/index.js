@@ -1,6 +1,7 @@
 var async = require("async");
 var sourceList = [];
 sourceList.push(require("../sites/miamiherald"));
+//sourceList.push(require("../sites/miamiherald"));
 
 var sources = {
     get count()

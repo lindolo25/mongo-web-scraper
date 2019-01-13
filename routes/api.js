@@ -31,7 +31,20 @@ router.post('/article', function(req, res)
 
 router.delete('/article', function(req, res, next) 
 {
-    res.send('respond with a resource');
+    if(!req.body.id) return res.json(false);
+
+    mongoose.connect(MONGODB_URI, {useNewUrlParser: true}, error => 
+    {
+        if(error) return res.json(false);       
+
+        db.Article.findByIdAndRemove(req.body.id, (error) => 
+        {
+            if (error) return res.json(false);
+
+            mongoose.disconnect();
+            res.json(true);
+        });
+    });
 });
 
 module.exports = router;

@@ -54,7 +54,7 @@ var removeArticle = function(e)
 
     const options = {
         contentType: "application/json",
-        method: "POST",
+        method: "DELETE",
         data: JSON.stringify(toDelete)
     };
 
@@ -63,7 +63,7 @@ var removeArticle = function(e)
         //console.log(result);
         if(result)
         {
-            jarticle.attr("data-id", result._id);
+            //$("article[data-id='{toDelete.Da}']")
         }
     });
 }
