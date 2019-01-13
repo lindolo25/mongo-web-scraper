@@ -8,7 +8,8 @@ $(document).ready(function()
 var saveArticle = function(e)
 {
     e.preventDefault();
-    var article = $(this).parents("article");
+    var button = $(this);
+    var article = button.parents("article");
     var jarticle = $(article);
 
     const newArticle = {
@@ -33,6 +34,7 @@ var saveArticle = function(e)
         if(result)
         {
             jarticle.attr("data-id", result._id);
+            button.remove();
         }
     });
 }
@@ -63,7 +65,8 @@ var removeArticle = function(e)
         //console.log(result);
         if(result)
         {
-            //$("article[data-id='{toDelete.Da}']")
+            var article = $(`article[data-id='${toDelete.id}']`);
+            article.parent("div").remove();
         }
     });
 }
